@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="col" class="Collection1.Collection">
+        <!--数组注入-->
+        <property name="arr">
+            <array>
+                <value>Java编程语言</value>
+                <value>数据库设计语言</value>
+            </array>
+        </property>
+
+        <!--List注入-->
+        <property name="list">
+            <list>
+                <value>高数</value>
+                <value>线性代数</value>
+            </list>
+        </property>
+
+       <!--set注入-->
+       <property name="set">
+           <set>
+              <value>记住集合还得用标签</value>
+               <value>切记切记</value>
+           </set>
+
+
+       </property>
+
+        <!--map注入-->
+        <property name="map">
+            <map>
+              <entry key="JAVA" value="java"></entry>
+                <entry key="PHP" value="php"></entry>
+            </map>
+        </property>
+
+
+
+        <!--map引用注入-->
+        <property name="map1" >
+           <map>
+               <entry key="b1" value-ref="b1"></entry>
+               <entry key="b2" value-ref="b2"></entry>
+           </map>
+        </property>
+
+        <!--List引用注入-->
+        <property name="list1">
+            <list>
+                <ref bean="b1"></ref>
+                <ref bean="b2"></ref>
+            </list>
+        </property>
+
+
+    </bean>
+
+
+
+
+    <bean  id="b1" class="Collection1.Book">
+        <property name="name" value="疯狂讲义"></property>
+    </bean>
+    <bean  id="b2" class="Collection1.Book">
+        <property name="name" value="行政测试"></property>
+    </bean>
+
+</beans>

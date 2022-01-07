@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <util:list id="b1">
+
+      <!-- list为String类型  <value>行政管理考试</value>
+        <value>申论考试</value>-->
+        <!--list为book类型-->
+       <ref bean="b11"></ref>
+        <ref bean="b12"></ref>
+    </util:list>
+
+    <bean id="b2" class="Collection1.Book">
+       <property name="list" ref="b1"></property>
+    </bean>
+
+    <bean  id="b11" class="Collection1.Book">
+        <property name="name" value="疯狂讲义"></property>
+    </bean>
+    <bean  id="b12" class="Collection1.Book">
+        <property name="name" value="行政测试"></property>
+    </bean>
+
+</beans>

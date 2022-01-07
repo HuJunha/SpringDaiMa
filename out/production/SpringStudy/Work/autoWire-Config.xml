@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="emp" class="Work.Employee" autowire="byName"></bean>
+
+    <!--自动装配只有一个bean标签，ByName对应的是相应引用标签的属性名，ByType对应相应引用标签的属性名
+    但多个引用bean标签autoWire对应只能是ByName，不然找不到会报错
+    -->
+    <bean id="department" class="Work.Department">
+        <property name="name"  value="111"></property>
+    </bean>
+
+    <bean id="department1" class="Work.Department">
+        <property name="name" value="开发组"></property>
+    </bean>
+</beans>
